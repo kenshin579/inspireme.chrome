@@ -17,10 +17,19 @@ html, body, #root {
   to { opacity: 1; transform: scale(1); }
 }
 
+@keyframes fade-in-delayed {
+  0%, 50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
 @utility animate-fade-in {
   animation: fade-in 0.5s ease-out;
 }
 
 @utility animate-scale-in {
   animation: scale-in 0.2s ease-out;
+}
+
+@utility animate-fade-in-delayed {
+  animation: fade-in-delayed 0.8s ease-out;
 }

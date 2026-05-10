@@ -1,5 +1,7 @@
 import { INSPIREME_BASE_URL } from '../lib/constants';
 import type { Quote as QuoteType } from '../types/quote';
+import { QuoteActions } from './QuoteActions';
+import { useSettings } from '../hooks/useSettings';
 
 interface QuoteProps {
   quote: QuoteType | null;
@@ -9,6 +11,9 @@ interface QuoteProps {
 }
 
 export function Quote({ quote, loading, fontFamily, fontSize = 36 }: QuoteProps) {
+  const { settings } = useSettings();
+  const lang = settings.language;
+
   if (loading) {
     return (
       <div className="text-center text-white/50 animate-pulse">
@@ -57,6 +62,12 @@ export function Quote({ quote, loading, fontFamily, fontSize = 36 }: QuoteProps)
           quote.author
         )}
       </p>
+
+      {hasLink && (
+        <div className="mt-6 animate-fade-in-delayed">
+          <QuoteActions quoteId={quote.id} lang={lang} />
+        </div>
+      )}
     </div>
   );
 }
