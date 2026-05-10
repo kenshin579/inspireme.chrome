@@ -35,3 +35,13 @@ export async function trackEvent(name: string, params?: Record<string, string>) 
 export async function trackPageView() {
   await trackEvent('page_view', { page_title: 'newtab' });
 }
+
+export async function trackQuoteAction(
+  action: 'like' | 'save',
+  quoteId: string,
+) {
+  await trackEvent('quote_action_click', {
+    action,
+    quote_id: quoteId,
+  });
+}
