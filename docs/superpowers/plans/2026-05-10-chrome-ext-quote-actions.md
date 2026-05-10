@@ -199,16 +199,15 @@ Expected: 에러 없음
 
 ```bash
 cd inspireme.advenoh.pe.kr
-git checkout -b feature/oauth-redirect-uri
+git checkout -b feature/466-oauth-redirect-uri
 git add backend/pkg/auth/handler.go backend/pkg/auth/handler_test.go
-git commit -m "[#XXX] feat: OAuth signin에 redirect_uri 쿼리 파라미터 지원
+git commit -m "[#466] feat: OAuth signin에 redirect_uri 쿼리 파라미터 지원
 
 * sanitizeRedirectURI로 같은 origin 경로만 허용 (open redirect 방지)
 * oauthSignin이 ?redirect_uri=... 받아 OAuthState.RedirectURI에 저장
 * OAuth 콜백이 이미 state.RedirectURI를 사용하므로 콜백 변경 없음"
 ```
 
-(이슈 번호 `#XXX`는 GitHub 이슈 생성 후 채울 것)
 
 ---
 
@@ -278,7 +277,7 @@ Expected: build 성공
 
 ```bash
 git add frontend/lib/locales/
-git commit -m "[#XXX] feat: 액션 토스트 i18n 카피 추가 (ko, en)"
+git commit -m "[#466] feat: 액션 토스트 i18n 카피 추가 (ko, en)"
 ```
 
 ---
@@ -344,7 +343,7 @@ Expected: 에러 없음
 
 ```bash
 git add frontend/lib/quote-action-handler.ts
-git commit -m "[#XXX] feat: ?action= 쿼리 처리 헬퍼 추가
+git commit -m "[#466] feat: ?action= 쿼리 처리 헬퍼 추가
 
 * parseAction: like/save 화이트리스트만 통과
 * clearActionFromUrl: history.replaceState로 action 쿼리 제거
@@ -455,7 +454,7 @@ Expected: 에러 없음
 
 ```bash
 git add frontend/components/auth/login-required-modal.tsx
-git commit -m "[#XXX] feat: LoginRequiredModal 컴포넌트 추가
+git commit -m "[#466] feat: LoginRequiredModal 컴포넌트 추가
 
 * Google/Naver 로그인 버튼이 redirect_uri 쿼리로 returnTo 전달
 * 액션 핸들러가 미로그인 시 띄움"
@@ -625,7 +624,7 @@ Expected: 에러 없음
 
 ```bash
 git add frontend/components/quote/quote-action-handler.tsx
-git commit -m "[#XXX] feat: ?action= 쿼리 처리 핸들러 컴포넌트 추가
+git commit -m "[#466] feat: ?action= 쿼리 처리 핸들러 컴포넌트 추가
 
 * like: 토글 호출 전 likedQuotes 확인, idempotent하게 동작
 * save: 미저장이면 CollectionSelectModal 자동 오픈 (기존 UX 일치)
@@ -679,7 +678,7 @@ Expected: 에러 없음
 
 ```bash
 git add frontend/components/quote/quote-detail-client.tsx
-git commit -m "[#XXX] feat: QuoteDetailClient에 액션 핸들러 마운트"
+git commit -m "[#466] feat: QuoteDetailClient에 액션 핸들러 마운트"
 ```
 
 ---
@@ -756,8 +755,8 @@ Backend: 8080, Frontend: 3000 가동 확인. dev-login 또는 OAuth로 로그인
 - [ ] **Step 9: PR 생성**
 
 ```bash
-git push -u origin feature/oauth-redirect-uri
-gh pr create --title "[#XXX] feat: ?action=like|save 쿼리로 자동 좋아요/저장 + OAuth redirect_uri" --body "$(cat <<'EOF'
+git push -u origin feature/466-oauth-redirect-uri
+gh pr create --title "[#466] feat: ?action=like|save 쿼리로 자동 좋아요/저장 + OAuth redirect_uri" --body "$(cat <<'EOF'
 ## Summary
 - Chrome 확장에서 사이트로 딥링크되는 `?action=like|save` 처리 도입
 - OAuth signin endpoint에 `redirect_uri` 쿼리 지원 (open redirect 방지 sanitize 포함)
@@ -790,7 +789,7 @@ EOF
 ```bash
 cd inspireme.chrome
 git checkout master && git pull
-git checkout -b feature/quote-actions
+git checkout -b feature/74-quote-actions
 ```
 
 - [ ] **Step 2: `constants.ts`에 URL 빌더 추가**
@@ -851,7 +850,7 @@ Expected: 에러 없음
 
 ```bash
 git add src/lib/constants.ts src/lib/analytics.ts
-git commit -m "[#XXX] feat: 명언 액션 URL 빌더 + GA 이벤트 헬퍼
+git commit -m "[#74] feat: 명언 액션 URL 빌더 + GA 이벤트 헬퍼
 
 * buildQuoteActionUrl: /quotes/{id}?action=...&utm_*=...
 * trackQuoteAction: GA 'quote_action_click' 이벤트"
@@ -908,7 +907,7 @@ Expected: 에러 없음. dist에 CSS 포함 확인.
 
 ```bash
 git add src/entrypoints/newtab/style.css
-git commit -m "[#XXX] feat: animate-fade-in-delayed keyframe 추가
+git commit -m "[#74] feat: animate-fade-in-delayed keyframe 추가
 
 * 명언 fade-in 후 액션 버튼이 약 300ms 지연 등장"
 ```
@@ -997,7 +996,7 @@ Expected: 에러 없음
 
 ```bash
 git add src/components/QuoteActions.tsx package.json pnpm-lock.yaml
-git commit -m "[#XXX] feat: QuoteActions 컴포넌트 추가
+git commit -m "[#74] feat: QuoteActions 컴포넌트 추가
 
 * 좋아요/저장 두 anchor 버튼 (target=_blank)
 * lang에 따른 ko/en 라벨
@@ -1086,7 +1085,7 @@ Expected: 에러 없음
 
 ```bash
 git add src/components/Quote.tsx
-git commit -m "[#XXX] feat: Quote 컴포넌트에 액션 버튼 마운트
+git commit -m "[#74] feat: Quote 컴포넌트에 액션 버튼 마운트
 
 * quote.id 있을 때만 좋아요/저장 버튼 표시
 * settings.lang에 따라 ko/en 라벨"
@@ -1150,15 +1149,15 @@ DevTools Network 탭에서 `google-analytics.com/mp/collect` 호출에 `quote_ac
 - [ ] **Step 11: PR 생성**
 
 ```bash
-git push -u origin feature/quote-actions
-gh pr create --title "[#XXX] feat: 새 탭 명언에 좋아요/저장 액션 버튼 추가" --body "$(cat <<'EOF'
+git push -u origin feature/74-quote-actions
+gh pr create --title "[#74] feat: 새 탭 명언에 좋아요/저장 액션 버튼 추가" --body "$(cat <<'EOF'
 ## Summary
 - 새 탭 명언 아래에 [♡ 좋아요] [🔖 저장] 두 버튼 추가
 - 클릭 시 사이트 명언 페이지를 새 탭으로 열고 자동 좋아요/저장 트리거
 - utm 파라미터로 사이트 GA에서 확장 유입 측정
 
 ## Dependencies
-- 사이트 PR (`feature/oauth-redirect-uri`) 머지 + 배포 필요
+- 사이트 PR (`feature/466-oauth-redirect-uri`) 머지 + 배포 필요
 
 ## Test plan
 - [ ] 새 탭 진입 시 두 버튼 fade-in 지연 등장
