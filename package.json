@@ -2,7 +2,7 @@
   "name": "inspireme-chrome",
   "description": "새 탭에서 매일 영감을 주는 명언을 만나보세요",
   "private": true,
-  "version": "2.2.3",
+  "version": "2.2.4",
   "type": "module",
   "scripts": {
     "dev": "wxt",
